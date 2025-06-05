@@ -1,7 +1,7 @@
 
 node {
     stage ('checkout scm') {
-	 git ''
+	 git 'https://github.com/srikanth1798/JavaWebCalculator.git'
 	} 
 	stage ('build steps') {
 	 sh 'mvn validate'
