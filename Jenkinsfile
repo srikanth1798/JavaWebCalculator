@@ -9,4 +9,8 @@ node {
 	 sh 'mvn test'
 	 sh 'mvn package'
 	}
+    stage ('deploy to container') {
+	 sh 'cp /var/lib/jenkins/workspace/jenkins/target/*.war /opt/tomcat/webapps/'
+	 sh 'chmod 777 /opt/tomcat/webapps/*.war'
+    }
 }
