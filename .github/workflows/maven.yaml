@@ -19,21 +19,13 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean package
-      - name: login to ECR
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          region: ${{ secrets.AWS_REGION }}
-      - name: build ans push to ECR
-        run: |
-          docker build -t ${{ var.IMAGE_NAME }}/${{ var.REPO_NAME }}:${{ github.sha }} .
-          docker push ${{ var.IMAGE_NAME }}/${{ var.REPO_NAME }}:${{ github.sha }}
+
 
             
             
                
         
+
 
 
 
