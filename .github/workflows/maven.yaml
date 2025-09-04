@@ -20,7 +20,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
       - name: login to ECR
-      - uses: actions/checkout@v2
+      - uses: aws-actions/configure-aws-credentials@v4
         with:
           access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -30,6 +30,7 @@ jobs:
             
                
         
+
 
 
 
