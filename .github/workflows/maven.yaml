@@ -30,3 +30,10 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build, Tag, and Push Docker image
+        run: |
+          docker build -t ${{ IMAGE_NAME }}/${{ REPO_NAME }}:${{ github.sha }} .
+          docker push ${{ IMAGE_NAME }}/${{ REPO_NAME }}:${{ github.sha }}
+      - name: Output pushed image
+        run: echo "pushed image ${{ IMAGE_NAME }}/${{ REPO_NAME }}:${{ github.sha }}""
