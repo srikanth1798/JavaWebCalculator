@@ -33,7 +33,7 @@ jobs:
 
       - name: Build, Tag, and Push Docker image
         run: |
-          docker build -t ${{ IMAGE_NAME }}/${{ REPO_NAME }}:${{ github.sha }} .
-          docker push ${{ IMAGE_NAME }}/${{ REPO_NAME }}:${{ github.sha }}
+          docker build -t ${{ var.IMAGE_NAME }}/${{ var.REPO_NAME }}:${{ github.sha }} .
+          docker push ${{ var.IMAGE_NAME }}/${{ var.var.REPO_NAME }}:${{ github.sha }}
       - name: Output pushed image
-        run: echo "pushed image ${{ IMAGE_NAME }}/${{ REPO_NAME }}:${{ github.sha }}""
+        run: echo "pushed image ${{ var.IMAGE_NAME }}/${{ var.REPO_NAME }}:${{ github.sha }}"
