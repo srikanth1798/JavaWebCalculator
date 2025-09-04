@@ -31,3 +31,9 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+      - name: build and push to ECR
+        run: |
+          docker build -t ${{ vars.IMAGE_NAME }}/${{ vars.REPO_NAME }}:${{ github.sha }} .
+          docker push ${{ vars.IMAGE_NAME }}/${{ vars.REPO_NAME }}:${{ github.sha }}
+
+
