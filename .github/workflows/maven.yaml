@@ -35,5 +35,11 @@ jobs:
         run: |
           docker build -t ${{ vars.IMAGE_NAME }}/${{ vars.REPO_NAME }}:${{ github.sha }} .
           docker push ${{ vars.IMAGE_NAME }}/${{ vars.REPO_NAME }}:${{ github.sha }}
+      - name: update kube config fie
+        run: aws eks update-kubeconfig --name eks-cluster --region us-west-2
+      - name: Deploy to eks
+        run: kubectl apply -f pod.yml
+      
+
 
 
