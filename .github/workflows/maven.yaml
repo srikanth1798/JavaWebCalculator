@@ -39,7 +39,10 @@ jobs:
         run: aws eks update-kubeconfig --name eks-cluster --region us-west-2
       - name: Deploy to eks
         run: kubectl apply -f pod.yml
+      - name: creating a deploy buy using image
+        run: kubectl create deploy dep1 --image ${{ vars.IMAGE_NAME }}/${{ vars.REPO_NAME }}:${{ github.sha }} --replicas=1 --dry-run=client -o yaml>dep.yml
       
+
 
 
 
