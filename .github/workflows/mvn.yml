@@ -2,5 +2,10 @@ name: Maven build
 on: workflow_dispatch
 jobs:
   build:
-   runs-on: self-hosted
+   runs-on: actions-runners
+   steps:
+     - name: checkout git
+       uses: actions/checkout@v4
+     - name: maven build
+       run: mvn clean install
    
