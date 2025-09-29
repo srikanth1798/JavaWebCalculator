@@ -12,4 +12,6 @@ jobs:
    steps:
      - name: maven build
        run: mvn package
+     - name: job actions
+       run: echo "the job is successfully completed"
    
