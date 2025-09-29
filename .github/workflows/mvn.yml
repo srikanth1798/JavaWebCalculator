@@ -1,4 +1,4 @@
-name: Maven build
+name: Maven build plan
 on: workflow_dispatch
 jobs:
   build:
