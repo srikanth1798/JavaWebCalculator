@@ -7,6 +7,9 @@ jobs:
    steps:
      - name: checkout git
        uses: actions/checkout@v3
+  package:
+   runs-on: self-hosted
+   steps:
      - name: maven build
        run: mvn package
    
