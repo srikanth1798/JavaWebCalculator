@@ -2,10 +2,10 @@ name: Maven build plan
 on: workflow_dispatch
 jobs:
   build:
-   runs-on: actions-runners
+   runs-on: myownagent
    steps:
      - name: checkout git
-       uses: actions/checkout@v4
+       uses: actions/checkout@v3
      - name: maven build
-       run: mvn clean install
+       run: mvn package
    
