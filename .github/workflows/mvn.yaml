@@ -1,8 +1,9 @@
 name: Maven build plan
-on: workflow_dispatch
+on: 
+  workflow_dispatch
 jobs:
   build:
-   runs-on: myownagent
+   runs-on: [self-hosted, actions-runners]
    steps:
      - name: checkout git
        uses: actions/checkout@v3
