@@ -1,5 +1,5 @@
 FROM ubuntu AS build
-RUN sudo apt update && sudo apt install git && sudo apt install maven && sudo apt install openjdk-17-jdk
+RUN apt update && apt install -y git maven openjdk-17-jdk
 COPY . /myapp
 WORKDIR /myapp
 RUN mvn package
